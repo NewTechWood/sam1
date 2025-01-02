@@ -9,7 +9,7 @@ from segment_anything import sam_model_registry, SamPredictor
 # 可更改的模型参数
 
 # 输入图片
-sam_image = cv2.imread(r'D:\NewTechWood\sam1\segment_anything\5a1ffee96be88e160a317a4dec2be845.png')
+sam_image = cv2.imread(r'/segment_anything/dog001.png')
 sam_image = cv2.cvtColor(sam_image, cv2.COLOR_BGR2RGB)
 # 输入模型
 sam_checkpoint = r'D:\NewTechWood\sam_vit_h_4b8939.pth'
