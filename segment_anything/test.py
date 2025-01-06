@@ -19,7 +19,7 @@ sam_model_type = 'vit_h'
 sam_device = 'cpu'
 # 输入预标记点
 sam_point_x, sam_point_y = 500, 375
-#asdasd
+
 
 # 用SamPredict类来实现对图片的预测
 
