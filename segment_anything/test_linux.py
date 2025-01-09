@@ -3,16 +3,16 @@ import cv2
 import matplotlib.pyplot as plt
 import numpy as np
 
-sys.path.append(r'D:\NewTechWood\sam1')
+sys.path.append(r'/home/payne/sam1')
 from segment_anything import sam_model_registry, SamPredictor
 
 # 可更改的模型参数
 
 # 输入图片
-sam_image = cv2.imread(r'D:\NewTechWood\sam1\segment_anything\dog001.png')
+sam_image = cv2.imread(r'/home/payne/sam1/segment_anything/dog001.png')
 sam_image = cv2.cvtColor(sam_image, cv2.COLOR_BGR2RGB)
 # 输入模型
-sam_checkpoint = r'D:\NewTechWood\sam_vit_h_4b8939.pth'
+sam_checkpoint = r'/home/payne/sam_vit_h_4b8939.pth'
 # 输入模型类型
 sam_model_type = 'vit_h'
 # 输入模型所需设备类型：'cuda'代表使用GPU
