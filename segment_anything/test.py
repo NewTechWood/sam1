@@ -3,13 +3,13 @@ import cv2
 import matplotlib.pyplot as plt
 import numpy as np
 
-sys.path.append(r'D:\NewTechWood\sam1')
+sys.path.append(r'D:\NewTechWood\sam1_1')
 from segment_anything import sam_model_registry, SamPredictor
 
 # 可更改的模型参数
 
 # 输入图片
-sam_image = cv2.imread(r'D:\NewTechWood\sam1\segment_anything\dog001.png')
+sam_image = cv2.imread(r'D:\NewTechWood\sam1_1\segment_anything\dog001.png')
 sam_image = cv2.cvtColor(sam_image, cv2.COLOR_BGR2RGB)
 # 输入模型
 sam_checkpoint = r'D:\NewTechWood\sam_vit_h_4b8939.pth'

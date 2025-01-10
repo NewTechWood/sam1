@@ -1,32 +1,29 @@
-import torch
-import cv2
-from segment_anything import sam_model_registry, SamPredictor
+from segment_anything.sam_cropper import SAMObjectCropper
 
-# 指定模型类型和模型权重文件的路径
-model_type = "vit_h"  # 例如：vit_h, vit_l, vit_b
-checkpoint = r'D:\NewTechWood\sam_vit_h_4b8939.pth'
 
-# 加载模型
-sam = sam_model_registry[model_type](checkpoint=checkpoint)
-sam.to(device='cpu')  # 如果使用GPU，可以将模型移动到GPU上
+def main():
+    # 创建SAMObjectCropper实例
+    cropper = SAMObjectCropper()
 
-# 创建预测器
-predictor = SamPredictor(sam)
+    # 测试图片路径
+    image_path = r'D:\NewTechWood\sam1_1\segment_anything\dog001.png'
+    # image_path = r'D:\NewTechWood\sam1_1\segment_anything\dog002.jpg'
+    output_path = "cropped_object.jpg"
+    prompt = "dog"
 
-# 加载图像
-image = cv2.imread(r'D:\NewTechWood\sam1\segment_anything\dog001.png')
+    # 降低置信度阈值
+    success = cropper.crop_object(
+        image_path=image_path,
+        target_path=output_path,
+        prompt=prompt,
+        conf_threshold=0.15  # 降低阈值
+    )
 
-# 设置图像
-predictor.set_image(image)
+    if success:
+        print(f"已将裁剪结果保存到: {output_path}")
+    else:
+        print("裁剪失败")
 
-# 使用文本提示进行分割
-text_prompt = "dog"
 
-# Segment the image based on the text prompt
-masks, _, _ = predictor.predict(mask_input=text_prompt)
-
-# Get the segmented image
-segmented_image = predictor.get_segmented_image(masks)
-
-# Save the segmented image
-cv2.imwrite('segmented_image.jpg', segmented_image)
+if __name__ == "__main__":
+    main()
