@@ -8,6 +8,7 @@ def main():
     # 测试图片路径
     image_path = r'D:\NewTechWood\sam1_1\segment_anything\dog001.png'
     # image_path = r'D:\NewTechWood\sam1_1\segment_anything\dog002.jpg'
+    # image_path = r'D:\NewTechWood\sam1_1\segment_anything\man001.jpg'
     output_path = "cropped_object.jpg"
     prompt = "dog"
 
